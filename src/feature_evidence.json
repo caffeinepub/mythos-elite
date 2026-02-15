@@ -1,0 +1,203 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-clickable-prototype-ui-for-mythos-elite-with-a-simple-app-shell-header-left-navigation-and-4-primary-sections-founder-cognitive-blueprint-ai-founder-twin-narrative-dominance-engine-and-strategic-decision-simulator",
+      "featureTitle": "Create a clickable prototype UI for “MythOS Elite™” with a simple app shell (header + left navigation) and 4 primary sections: Founder Cognitive Blueprint, AI Founder Twin, Narrative Dominance Engine, and Strategic Decision Simulator.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/AppShell.tsx",
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/components/layout/LeftNav.tsx",
+        "frontend/src/pages/BlueprintPage.tsx",
+        "frontend/src/pages/NarrativePage.tsx",
+        "frontend/src/pages/SimulatorPage.tsx",
+        "frontend/src/pages/TwinPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-coherent-premium-visual-theme-suitable-for-an-elite-founder-product-distinct-typography-neutral-palette-strong-contrast-restrained-accents-and-apply-it-consistently-across-navigation-cards-forms-and-outputs-avoid-blue-purple-as-primary-accents",
+      "featureTitle": "Implement a coherent, premium visual theme suitable for an elite founder product (distinct typography, neutral palette, strong contrast, restrained accents) and apply it consistently across navigation, cards, forms, and outputs (avoid blue/purple as primary accents).",
+      "files": [
+        "frontend/src/components/layout/AppShell.tsx",
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/components/layout/LeftNav.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-founder-cognitive-blueprint-module-build-a-guided-multi-step-intake-that-captures-the-founder-traits-listed-by-the-user-strategic-heuristics-risk-tolerance-model-moral-decision-thresholds-crisis-response-patterns-shadow-traits-long-term-worldview-competitive-instinct-structure-communication-cadence-save-progress-and-generate-a-founder-doctrine-manual-as-a-structured-long-form-text-output",
+      "featureTitle": "Founder Cognitive Blueprint module: build a guided multi-step intake that captures the founder traits listed by the user (strategic heuristics, risk tolerance model, moral decision thresholds, crisis response patterns, shadow traits, long-term worldview, competitive instinct structure, communication cadence). Save progress and generate a “Founder Doctrine Manual” as a structured long-form text output.",
+      "files": [
+        "frontend/src/components/blueprint/BlueprintWizard.tsx",
+        "frontend/src/components/blueprint/DoctrineManualPreview.tsx",
+        "frontend/src/hooks/queries/useBlueprints.ts",
+        "frontend/src/lib/exportText.ts",
+        "frontend/src/lib/generators/doctrineManual.ts",
+        "frontend/src/pages/BlueprintPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ai-founder-twin-module-provide-an-artifact-ingestion-ui-for-text-inputs-and-file-uploads-stored-as-text-content-where-feasible-for-founder-interviews-past-emails-strategic-memos-and-public-statements-provide-a-draft-workspace-that-generates-a-founder-style-response-to-a-prompt-using-deterministic-local-heuristics-no-external-llm-api",
+      "featureTitle": "AI Founder Twin module: provide an artifact ingestion UI for text inputs and file uploads (stored as text content where feasible) for founder interviews, past emails, strategic memos, and public statements. Provide a “Draft” workspace that generates a founder-style response to a prompt using deterministic, local heuristics (no external LLM/API).",
+      "files": [
+        "frontend/src/components/twin/ArtifactIngestionPanel.tsx",
+        "frontend/src/components/twin/TwinDraftWorkspace.tsx",
+        "frontend/src/hooks/queries/useArtifacts.ts",
+        "frontend/src/hooks/queries/useTwinDrafts.ts",
+        "frontend/src/lib/generators/twinDraft.ts",
+        "frontend/src/pages/TwinPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-narrative-dominance-engine-module-implement-structured-workflows-to-produce-outputs-for-1-public-identity-positioning-2-strategic-controversy-arcs-3-media-angles-4-long-term-cultural-narrative-placement-and-5-adversary-positioning-strategy-allow-selecting-a-target-audience-and-constraints-then-generate-a-narrative-playbook-document",
+      "featureTitle": "Narrative Dominance Engine module: implement structured workflows to produce outputs for (1) public identity positioning, (2) strategic controversy arcs, (3) media angles, (4) long-term cultural narrative placement, and (5) adversary positioning strategy. Allow selecting a target audience and constraints, then generate a narrative “playbook” document.",
+      "files": [
+        "frontend/src/components/narrative/PlaybookForm.tsx",
+        "frontend/src/components/narrative/PlaybookList.tsx",
+        "frontend/src/hooks/queries/usePlaybooks.ts",
+        "frontend/src/lib/generators/playbook.ts",
+        "frontend/src/pages/NarrativePage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-strategic-decision-simulator-module-implement-scenario-setup-for-major-founder-decisions-launch-product-acquire-competitor-fire-executive-enter-new-political-space-with-inputs-for-assumptions-market-behavioral-historical-reaction-patterns-as-user-entered-parameters-compute-and-display-a-probabilistic-outcome-summary-using-a-transparent-scoring-model-and-show-2-5-scenario-branches-with-rationale",
+      "featureTitle": "Strategic Decision Simulator module: implement scenario setup for major founder decisions (launch product, acquire competitor, fire executive, enter new political space) with inputs for assumptions (market, behavioral, historical reaction patterns as user-entered parameters). Compute and display a probabilistic outcome summary using a transparent scoring model and show 2–5 scenario branches with rationale.",
+      "files": [
+        "frontend/src/components/simulator/ScenarioCompare.tsx",
+        "frontend/src/components/simulator/ScenarioForm.tsx",
+        "frontend/src/components/simulator/ScenarioResults.tsx",
+        "frontend/src/hooks/queries/useScenarios.ts",
+        "frontend/src/lib/generators/simulator.ts",
+        "frontend/src/pages/SimulatorPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-frontend-data-layer-integrate-react-query-for-loading-mutating-the-backend-entities-for-each-module-including-loading-states-empty-states-and-error-states",
+      "featureTitle": "Frontend data layer: integrate React Query for loading/mutating the backend entities for each module, including loading states, empty states, and error states.",
+      "files": [
+        "frontend/src/components/shared/QueryState.tsx",
+        "frontend/src/hooks/queries/queryKeys.ts",
+        "frontend/src/hooks/queries/useArtifacts.ts",
+        "frontend/src/hooks/queries/useBlueprints.ts",
+        "frontend/src/hooks/queries/usePlaybooks.ts",
+        "frontend/src/hooks/queries/useScenarios.ts",
+        "frontend/src/hooks/queries/useTwinDrafts.ts",
+        "frontend/src/pages/BlueprintPage.tsx",
+        "frontend/src/pages/NarrativePage.tsx",
+        "frontend/src/pages/SimulatorPage.tsx",
+        "frontend/src/pages/TwinPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-in-app-demo-data-action-that-seeds-the-prototype-with-one-example-blueprint-doctrine-manual-a-small-set-of-artifacts-one-narrative-playbook-and-two-simulator-runs-so-the-user-can-explore-the-experience-instantly",
+      "featureTitle": "Add an in-app “Demo Data” action that seeds the prototype with one example Blueprint + Doctrine Manual, a small set of artifacts, one Narrative playbook, and two Simulator runs so the user can explore the experience instantly.",
+      "files": [
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/components/shared/DemoBadge.tsx",
+        "frontend/src/hooks/queries/useDemoData.ts",
+        "frontend/src/pages/BlueprintPage.tsx",
+        "frontend/src/pages/NarrativePage.tsx",
+        "frontend/src/pages/SimulatorPage.tsx",
+        "frontend/src/pages/TwinPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

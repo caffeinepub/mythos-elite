@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a prototype for \"MythOS Elite\"—a cognitive infrastructure system for high-level founders—featuring a Founder Cognitive Blueprint, an AI Founder Twin, a Narrative Dominance Engine, and a Strategic Decision Simulator.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal wordmark logo on transparent background (mythos-elite-wordmark.dim_1200x300.png)\n- Abstract premium dashboard hero illustration with neutral tones and subtle gold accent (mythos-elite-hero.dim_1600x900.png)\n- Set of 4 monochrome module icons (blueprint, twin, narrative, simulator) (mythos-elite-module-icons.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-clickable-prototype-ui-for-mythos-elite-with-a-simple-app-shell-header-left-navigation-and-4-primary-sections-founder-cognitive-blueprint-ai-founder-twin-narrative-dominance-engine-and-strategic-decision-simulator",
+      "title": "Create a clickable prototype UI for “MythOS Elite™” with a simple app shell (header + left navigation) and 4 primary sections: Founder Cognitive Blueprint, AI Founder Twin, Narrative Dominance Engine, and Strategic Decision Simulator.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-coherent-premium-visual-theme-suitable-for-an-elite-founder-product-distinct-typography-neutral-palette-strong-contrast-restrained-accents-and-apply-it-consistently-across-navigation-cards-forms-and-outputs-avoid-blue-purple-as-primary-accents",
+      "title": "Implement a coherent, premium visual theme suitable for an elite founder product (distinct typography, neutral palette, strong contrast, restrained accents) and apply it consistently across navigation, cards, forms, and outputs (avoid blue/purple as primary accents).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-founder-cognitive-blueprint-module-build-a-guided-multi-step-intake-that-captures-the-founder-traits-listed-by-the-user-strategic-heuristics-risk-tolerance-model-moral-decision-thresholds-crisis-response-patterns-shadow-traits-long-term-worldview-competitive-instinct-structure-communication-cadence-save-progress-and-generate-a-founder-doctrine-manual-as-a-structured-long-form-text-output",
+      "title": "Founder Cognitive Blueprint module: build a guided multi-step intake that captures the founder traits listed by the user (strategic heuristics, risk tolerance model, moral decision thresholds, crisis response patterns, shadow traits, long-term worldview, competitive instinct structure, communication cadence). Save progress and generate a “Founder Doctrine Manual” as a structured long-form text output.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ai-founder-twin-module-provide-an-artifact-ingestion-ui-for-text-inputs-and-file-uploads-stored-as-text-content-where-feasible-for-founder-interviews-past-emails-strategic-memos-and-public-statements-provide-a-draft-workspace-that-generates-a-founder-style-response-to-a-prompt-using-deterministic-local-heuristics-no-external-llm-api",
+      "title": "AI Founder Twin module: provide an artifact ingestion UI for text inputs and file uploads (stored as text content where feasible) for founder interviews, past emails, strategic memos, and public statements. Provide a “Draft” workspace that generates a founder-style response to a prompt using deterministic, local heuristics (no external LLM/API).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-narrative-dominance-engine-module-implement-structured-workflows-to-produce-outputs-for-1-public-identity-positioning-2-strategic-controversy-arcs-3-media-angles-4-long-term-cultural-narrative-placement-and-5-adversary-positioning-strategy-allow-selecting-a-target-audience-and-constraints-then-generate-a-narrative-playbook-document",
+      "title": "Narrative Dominance Engine module: implement structured workflows to produce outputs for (1) public identity positioning, (2) strategic controversy arcs, (3) media angles, (4) long-term cultural narrative placement, and (5) adversary positioning strategy. Allow selecting a target audience and constraints, then generate a narrative “playbook” document.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-strategic-decision-simulator-module-implement-scenario-setup-for-major-founder-decisions-launch-product-acquire-competitor-fire-executive-enter-new-political-space-with-inputs-for-assumptions-market-behavioral-historical-reaction-patterns-as-user-entered-parameters-compute-and-display-a-probabilistic-outcome-summary-using-a-transparent-scoring-model-and-show-2-5-scenario-branches-with-rationale",
+      "title": "Strategic Decision Simulator module: implement scenario setup for major founder decisions (launch product, acquire competitor, fire executive, enter new political space) with inputs for assumptions (market, behavioral, historical reaction patterns as user-entered parameters). Compute and display a probabilistic outcome summary using a transparent scoring model and show 2–5 scenario branches with rationale.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-frontend-data-layer-integrate-react-query-for-loading-mutating-the-backend-entities-for-each-module-including-loading-states-empty-states-and-error-states",
+      "title": "Frontend data layer: integrate React Query for loading/mutating the backend entities for each module, including loading states, empty states, and error states.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-in-app-demo-data-action-that-seeds-the-prototype-with-one-example-blueprint-doctrine-manual-a-small-set-of-artifacts-one-narrative-playbook-and-two-simulator-runs-so-the-user-can-explore-the-experience-instantly",
+      "title": "Add an in-app “Demo Data” action that seeds the prototype with one example Blueprint + Doctrine Manual, a small set of artifacts, one Narrative playbook, and two Simulator runs so the user can explore the experience instantly.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a clickable/code prototype for MythOS Elite that the user can view (MVP demo).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement Founder Cognitive Blueprint module: guided extraction of founder heuristics/traits and generate a Founder Doctrine Manual output.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement AI Founder Twin module: ingest founder artifacts (interviews/emails/memos/public statements) to simulate calibrated founder-style decisioning and drafting.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement Narrative Dominance Engine module: tools/workflows for public identity positioning, controversy arcs, media angles, and adversary positioning strategy.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement Strategic Decision Simulator module: probabilistic scenario modeling for major founder decisions using market/behavioral/historical inputs.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Backend (single Motoko actor): add stable persistence for the prototype entities needed by all modules (Blueprint drafts + manuals, Artifact library, Twin drafts, Narrative playbooks, Simulator runs) with CRUD methods callable from the frontend.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "MythOS Elite™",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

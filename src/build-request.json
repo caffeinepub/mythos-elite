@@ -1,0 +1,194 @@
+{
+  "kind": "build_request",
+  "title": "Prototype MVP for MythOS Elite (Blueprint, Founder Twin, Narrative Engine, Decision Simulator)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a clickable prototype UI for “MythOS Elite™” with a simple app shell (header + left navigation) and 4 primary sections: Founder Cognitive Blueprint, AI Founder Twin, Narrative Dominance Engine, and Strategic Decision Simulator.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2",
+          "msg-6"
+        ],
+        "quotes": [
+          "MythOS Elite Actually Builds",
+          "Can you code it and let me see a prototype"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can navigate between the 4 sections without page reload.",
+        "Each section has an overview panel describing what it does using the user-provided language (in English).",
+        "App renders without placeholder/blank routes (no dead links)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a coherent, premium visual theme suitable for an elite founder product (distinct typography, neutral palette, strong contrast, restrained accents) and apply it consistently across navigation, cards, forms, and outputs (avoid blue/purple as primary accents).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2",
+          "msg-6"
+        ],
+        "quotes": [
+          "The Cognitive Infrastructure System for High-Level Founders",
+          "Can you code it and let me see a prototype"
+        ]
+      },
+      "acceptanceCriteria": [
+        "UI uses a consistent design system (spacing, card styles, button variants) across all 4 modules.",
+        "Primary accent color is not blue or purple.",
+        "All pages are responsive and usable at mobile and desktop widths."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Founder Cognitive Blueprint module: build a guided multi-step intake that captures the founder traits listed by the user (strategic heuristics, risk tolerance model, moral decision thresholds, crisis response patterns, shadow traits, long-term worldview, competitive instinct structure, communication cadence). Save progress and generate a “Founder Doctrine Manual” as a structured long-form text output.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Founder Cognitive Blueprint™\n\nA deep-dive extraction process that maps:\n\t•\tStrategic heuristics\n\t•\tRisk tolerance model\n\t•\tMoral decision thresholds\n\t•\tCrisis response patterns\n\t•\tShadow traits\n\t•\tLong-term worldview\n\t•\tCompetitive instinct structure\n\t•\tCommunication cadence\n\nOutput:\nA 100–300 page internal Founder Doctrine Manual."
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can complete an intake and see a generated Doctrine Manual preview immediately after submission.",
+        "User can save a draft intake and return to it within the same browser session (and via backend persistence for the prototype).",
+        "Generated manual includes clearly labeled sections corresponding to each captured trait area and incorporates user-entered content.",
+        "User can export/download the manual as a .txt or .md file from the UI."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "AI Founder Twin module: provide an artifact ingestion UI for text inputs and file uploads (stored as text content where feasible) for founder interviews, past emails, strategic memos, and public statements. Provide a “Draft” workspace that generates a founder-style response to a prompt using deterministic, local heuristics (no external LLM/API).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "AI Founder Twin™\n\nNot a chatbot.\n\nA calibrated cognitive simulation trained on:\n\t•\tFounder interviews\n\t•\tPast emails\n\t•\tStrategic memos\n\t•\tPublic statements\n\t•\tStress reactions\n\t•\tReal-time decision modeling\n\nUse cases:\n\n• Draft board memos\n• Evaluate investment opportunities\n• Simulate PR fallout\n• Test negotiation strategies\n• Maintain consistent brand philosophy\n• Preserve legacy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can add, list, and delete ingested artifacts in the prototype.",
+        "User can enter a prompt and receive a generated output that references: (a) selected doctrine traits and (b) patterns extracted from uploaded artifacts (e.g., preferred tone, recurring principles) using transparent, non-LLM logic.",
+        "UI supports at least three preset drafting modes: “Board Memo”, “Investment Evaluation”, “PR Fallout Simulation”, each producing different structured output sections.",
+        "The app clearly labels the feature as a prototype simulation without claiming external AI model training or real-time market access."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Narrative Dominance Engine module: implement structured workflows to produce outputs for (1) public identity positioning, (2) strategic controversy arcs, (3) media angles, (4) long-term cultural narrative placement, and (5) adversary positioning strategy. Allow selecting a target audience and constraints, then generate a narrative “playbook” document.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Narrative Dominance Engine™\n\nWe engineer:\n\t•\tPublic identity positioning\n\t•\tStrategic controversy arcs\n\t•\tMedia angles\n\t•\tLong-term cultural narrative placement\n\t•\tAdversary positioning strategy\n\nThis isn’t PR.\nIt’s legend architecture."
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can fill a form and generate a playbook output with separate sections for each of the five items above.",
+        "User can save multiple playbooks and revisit them from a list view.",
+        "User can export/download a playbook as .txt or .md."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Strategic Decision Simulator module: implement scenario setup for major founder decisions (launch product, acquire competitor, fire executive, enter new political space) with inputs for assumptions (market, behavioral, historical reaction patterns as user-entered parameters). Compute and display a probabilistic outcome summary using a transparent scoring model and show 2–5 scenario branches with rationale.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Strategic Decision Simulator™\n\nBefore a founder makes a move:\n\t•\tLaunch new product?\n\t•\tAcquire competitor?\n\t•\tFire executive?\n\t•\tEnter new political space?\n\nThe system runs probabilistic scenario modeling based on:\n\nMarket data\nBehavioral forecasting\nHistorical reaction patterns"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can choose a decision type, enter assumptions, and run the simulator.",
+        "Simulator displays: (a) overall success probability, (b) key drivers (top contributing factors), (c) scenario branches with outcomes and suggested mitigations.",
+        "User can save simulator runs and compare at least two runs side-by-side (inputs + results)."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Backend (single Motoko actor): add stable persistence for the prototype entities needed by all modules (Blueprint drafts + manuals, Artifact library, Twin drafts, Narrative playbooks, Simulator runs) with CRUD methods callable from the frontend.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Can you code it and let me see a prototype"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Data created in each module persists across page reloads.",
+        "CRUD calls are exposed via the generated canister interface and are used by the frontend via the existing actor hook pattern (without editing immutable hook files).",
+        "All stored records include an id, createdAt timestamp, and updatedAt timestamp."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Frontend data layer: integrate React Query for loading/mutating the backend entities for each module, including loading states, empty states, and error states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Can you code it and let me see a prototype"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each module list/detail view shows a skeleton or loading indicator during fetch.",
+        "Mutations (create/update/delete) optimistically update or refetch and reflect changes immediately.",
+        "Errors are shown as user-friendly English messages with a retry action where appropriate."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Add an in-app “Demo Data” action that seeds the prototype with one example Blueprint + Doctrine Manual, a small set of artifacts, one Narrative playbook, and two Simulator runs so the user can explore the experience instantly.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "let me see a prototype"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can click “Load Demo Data” and see populated lists across all modules.",
+        "Seeding is idempotent (re-running does not create duplicates).",
+        "Demo content is clearly marked as sample content in the UI."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor (no additional backend services).",
+    "Do not edit files under frontend/src/components/ui or other paths listed as immutable by the platform; compose them instead.",
+    "Do not integrate external AI/LLM providers; AI Founder Twin behavior must be implemented as a deterministic prototype (rules/templates/scoring) using user-provided inputs only.",
+    "User-facing text must be in English."
+  ],
+  "nonGoals": [
+    "True AI model training or ingestion pipelines beyond simple prototype storage and deterministic generation.",
+    "Real-time market data integrations or external data sources for the simulator.",
+    "Producing an actual 100–300 page PDF; the prototype may generate long-form text and allow .txt/.md export."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimal wordmark logo on transparent background (mythos-elite-wordmark.dim_1200x300.png)",
+      "Abstract premium dashboard hero illustration with neutral tones and subtle gold accent (mythos-elite-hero.dim_1600x900.png)",
+      "Set of 4 monochrome module icons (blueprint, twin, narrative, simulator) (mythos-elite-module-icons.dim_512x512.png)"
+    ],
+    "edits": []
+  }
+}

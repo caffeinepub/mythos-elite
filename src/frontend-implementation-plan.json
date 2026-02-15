@@ -1,0 +1,387 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "MythOS Elite™ Prototype MVP (Frontend)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a clickable prototype UI with an app shell (header + left navigation) and 4 primary sections with working navigation and overview panels.",
+      "acceptanceCriteria": [
+        "User can navigate between the 4 sections without page reload.",
+        "Each section has an overview panel describing what it does using the user-provided language (in English).",
+        "App renders without placeholder/blank routes (no dead links)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the top-level app with a simple client-side navigation state (no page reload), rendering the 4 required sections and their overview panels; compose shadcn-ui building blocks (e.g., Button/Card/Separator) for shell + content. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/AppShell.tsx",
+          "operation": "create",
+          "description": "Implement the app shell layout (header + left navigation + main content slot) with module nav items for Blueprint, Twin, Narrative, Simulator; compose shadcn-ui components for consistent layout primitives. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "create",
+          "description": "Create header UI containing wordmark placement, global actions (e.g., Demo Data), and a prototype disclaimer area; use shadcn-ui components for buttons/menus. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/LeftNav.tsx",
+          "operation": "create",
+          "description": "Create left navigation with 4 primary section links (internal state navigation) and selected-state styling; compose shadcn-ui components (e.g., Button/Badge) as needed. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/BlueprintPage.tsx",
+          "operation": "create",
+          "description": "Create the Founder Cognitive Blueprint section page with an English overview panel and wiring to the Blueprint wizard + list/detail areas. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/TwinPage.tsx",
+          "operation": "create",
+          "description": "Create the AI Founder Twin section page with an English overview panel and wiring to artifact ingestion + draft workspace. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/NarrativePage.tsx",
+          "operation": "create",
+          "description": "Create the Narrative Dominance Engine section page with an English overview panel and wiring to playbook workflow + saved playbooks list. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/SimulatorPage.tsx",
+          "operation": "create",
+          "description": "Create the Strategic Decision Simulator section page with an English overview panel and wiring to scenario setup, results, saved runs, and comparison view. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/public/assets/generated/mythos-elite-wordmark.dim_1200x300.png",
+          "operation": "create",
+          "description": "Add the generated wordmark asset to be used in the header branding (static frontend asset)."
+        },
+        {
+          "path": "frontend/public/assets/generated/mythos-elite-hero.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated hero illustration asset to be used within an existing required page (e.g., Blueprint overview panel) as a premium visual anchor (static frontend asset)."
+        },
+        {
+          "path": "frontend/public/assets/generated/mythos-elite-module-icons.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated module icons asset to be referenced in the left navigation and/or section headers (static frontend asset)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Apply a coherent premium visual theme (neutral palette, strong contrast, restrained non-blue/purple accents) consistently across the prototype and ensure responsiveness.",
+      "acceptanceCriteria": [
+        "UI uses a consistent design system (spacing, card styles, button variants) across all 4 modules.",
+        "Primary accent color is not blue or purple.",
+        "All pages are responsive and usable at mobile and desktop widths."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global premium theme tokens (neutral palette, strong contrast, restrained gold/amber-like accent; no blue/purple primary accents), typography defaults, and base element styles consistent with shadcn-ui theming approach; ensure responsive defaults."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extensions as needed to support the premium design tokens/typography and consistent spacing; keep primary/accent aligned with non-blue/purple requirements."
+        },
+        {
+          "path": "frontend/src/components/layout/AppShell.tsx",
+          "operation": "modify",
+          "description": "Apply consistent layout spacing, responsive behavior (collapsible/stacked nav on small screens), and premium surface styling by composing shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/LeftNav.tsx",
+          "operation": "modify",
+          "description": "Apply consistent nav item styles (selected/hover/focus states), icon placement, and compact responsive behavior using shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Apply consistent header styling (contrast, borders, spacing) and ensure the wordmark scales well across viewports; compose shadcn-ui components. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Founder Cognitive Blueprint: guided multi-step intake for specified trait areas, draft saving, Doctrine Manual generation preview, backend-backed save, and .txt/.md export.",
+      "acceptanceCriteria": [
+        "User can complete an intake and see a generated Doctrine Manual preview immediately after submission.",
+        "User can save a draft intake and return to it within the same browser session (and via backend persistence for the prototype).",
+        "Generated manual includes clearly labeled sections corresponding to each captured trait area and incorporates user-entered content.",
+        "User can export/download the manual as a .txt or .md file from the UI."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/BlueprintPage.tsx",
+          "operation": "modify",
+          "description": "Implement the guided multi-step intake UI capturing: strategic heuristics, risk tolerance model, moral decision thresholds, crisis response patterns, shadow traits, long-term worldview, competitive instinct structure, communication cadence; include save draft (session) and submit to backend via React Query; show generated Doctrine Manual preview and export actions. Use shadcn-ui form primitives (Input/Textarea/Button/Card) and stepper-like composition. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/blueprint/BlueprintWizard.tsx",
+          "operation": "create",
+          "description": "Create a reusable multi-step wizard component that manages step navigation, validation, and draft persistence (session storage) for the Blueprint intake. Use shadcn-ui components for step UI and form fields. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/blueprint/DoctrineManualPreview.tsx",
+          "operation": "create",
+          "description": "Render the generated Doctrine Manual as structured long-form text with clearly labeled sections per trait area and an export/download affordance. Compose shadcn-ui components for typography surfaces and actions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/lib/generators/doctrineManual.ts",
+          "operation": "create",
+          "description": "Implement deterministic Doctrine Manual generation (structured sections per trait area) from user-entered traits; return both .txt and .md friendly formats for export."
+        },
+        {
+          "path": "frontend/src/lib/sessionDrafts.ts",
+          "operation": "create",
+          "description": "Add session-storage utilities to save/restore the in-progress Blueprint intake (draft) within the same browser session."
+        },
+        {
+          "path": "frontend/src/lib/exportText.ts",
+          "operation": "create",
+          "description": "Implement a small utility to export/download generated text as .txt or .md from the browser (Blob + download)."
+        },
+        {
+          "path": "frontend/src/hooks/queries/useBlueprints.ts",
+          "operation": "create",
+          "description": "Create React Query hooks to load/save/delete Blueprints using the existing actor hook pattern (via useActor) without modifying immutable hook files; include loading/empty/error state helpers for the Blueprint page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "AI Founder Twin: artifact ingestion (text + file-to-text), list/delete artifacts, deterministic drafting workspace with preset modes and transparent non-LLM logic, and prototype labeling.",
+      "acceptanceCriteria": [
+        "User can add, list, and delete ingested artifacts in the prototype.",
+        "User can enter a prompt and receive a generated output that references: (a) selected doctrine traits and (b) patterns extracted from uploaded artifacts (e.g., preferred tone, recurring principles) using transparent, non-LLM logic.",
+        "UI supports at least three preset drafting modes: “Board Memo”, “Investment Evaluation”, “PR Fallout Simulation”, each producing different structured output sections.",
+        "The app clearly labels the feature as a prototype simulation without claiming external AI model training or real-time market access."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/TwinPage.tsx",
+          "operation": "modify",
+          "description": "Implement artifact ingestion UI (paste text + upload file read-as-text where feasible), artifacts list with delete, and a Draft workspace that generates founder-style responses using deterministic heuristics; include preset modes with distinct structured outputs and a clear prototype simulation disclaimer. Compose shadcn-ui components (Tabs/Select/Button/Card/Dialog as needed). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/twin/ArtifactIngestionPanel.tsx",
+          "operation": "create",
+          "description": "Create UI for adding artifacts (name + text content + optional file read-as-text), listing stored artifacts, and deleting artifacts; show loading/empty/error states using shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/twin/TwinDraftWorkspace.tsx",
+          "operation": "create",
+          "description": "Create UI for selecting drafting mode, entering a prompt, optionally selecting a Blueprint to reference, and showing generated response; persist drafts via backend using React Query. Use shadcn-ui components for forms and output surfaces. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/lib/generators/twinDraft.ts",
+          "operation": "create",
+          "description": "Implement deterministic, transparent non-LLM drafting logic that (1) references selected doctrine traits and (2) extracts simple patterns from artifacts (e.g., recurring principles, tone keywords) to shape structured outputs for the three preset modes."
+        },
+        {
+          "path": "frontend/src/hooks/queries/useArtifacts.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for listing/saving/deleting artifacts using backend actor calls; provide user-friendly error mapping for the UI."
+        },
+        {
+          "path": "frontend/src/hooks/queries/useTwinDrafts.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for listing/saving/deleting Twin drafts; ensure mutations refetch/optimistically update to reflect changes immediately."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Narrative Dominance Engine: workflows to generate a narrative playbook with 5 required sections, audience/constraints inputs, saved playbooks list, and export/download.",
+      "acceptanceCriteria": [
+        "User can fill a form and generate a playbook output with separate sections for each of the five items above.",
+        "User can save multiple playbooks and revisit them from a list view.",
+        "User can export/download a playbook as .txt or .md."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/NarrativePage.tsx",
+          "operation": "modify",
+          "description": "Implement form workflow (audience + constraints + core inputs) that generates and previews a narrative playbook with 5 separate labeled sections; allow saving multiple playbooks and revisiting from a list view; include export/download actions. Compose shadcn-ui components for forms, cards, and list items. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/narrative/PlaybookForm.tsx",
+          "operation": "create",
+          "description": "Create the structured playbook input form including audience selection and constraints; trigger deterministic generation and save via React Query; show loading/empty/error states with shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/narrative/PlaybookList.tsx",
+          "operation": "create",
+          "description": "Create list/detail UI to browse saved playbooks, open one to view its generated sections, delete, and export. Use shadcn-ui components for list presentation and actions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/lib/generators/playbook.ts",
+          "operation": "create",
+          "description": "Implement deterministic playbook generation that outputs distinct sections for: (1) public identity positioning, (2) strategic controversy arcs, (3) media angles, (4) long-term cultural narrative placement, (5) adversary positioning strategy; format as exportable text/markdown."
+        },
+        {
+          "path": "frontend/src/hooks/queries/usePlaybooks.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for listing/saving/deleting playbooks; ensure UI can refetch and reflect changes immediately after mutations."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Strategic Decision Simulator: scenario setup with assumptions, deterministic scoring model producing probability/drivers/branches, saved runs, and side-by-side comparison of two runs.",
+      "acceptanceCriteria": [
+        "User can choose a decision type, enter assumptions, and run the simulator.",
+        "Simulator displays: (a) overall success probability, (b) key drivers (top contributing factors), (c) scenario branches with outcomes and suggested mitigations.",
+        "User can save simulator runs and compare at least two runs side-by-side (inputs + results)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/SimulatorPage.tsx",
+          "operation": "modify",
+          "description": "Implement scenario setup UI for decision types (launch product, acquire competitor, fire executive, enter new political space), assumption inputs, run action, and results rendering (probability, key drivers, scenario branches with rationale + mitigations); allow saving runs and comparing at least two side-by-side. Compose shadcn-ui components for forms, tables/cards, and comparison layout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/simulator/ScenarioForm.tsx",
+          "operation": "create",
+          "description": "Create scenario setup form with decision type selection and repeatable assumption fields (market/behavioral/historical reaction parameters); trigger deterministic simulation run and save via React Query. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/simulator/ScenarioResults.tsx",
+          "operation": "create",
+          "description": "Render simulator results including overall probability, key drivers (top contributing factors), and 2–5 scenario branches with outcomes, rationale, and suggested mitigations; use shadcn-ui components for readable, premium presentation. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/simulator/ScenarioCompare.tsx",
+          "operation": "create",
+          "description": "Create a side-by-side comparison UI for at least two saved runs (inputs + results) with clear diff-style presentation; compose shadcn-ui components for layout and selection controls. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/lib/generators/simulator.ts",
+          "operation": "create",
+          "description": "Implement a transparent deterministic scoring model that converts assumptions into (a) success probability, (b) key drivers, and (c) 2–5 scenario branches with rationales and mitigations; keep logic local and explainable."
+        },
+        {
+          "path": "frontend/src/hooks/queries/useScenarios.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for listing/saving/deleting simulator runs (scenarios); include helpers to support comparison selection and refetch on mutation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Frontend data layer: use React Query for loading/mutating backend entities for each module with loading, empty, and error states.",
+      "acceptanceCriteria": [
+        "Each module list/detail view shows a skeleton or loading indicator during fetch.",
+        "Mutations (create/update/delete) optimistically update or refetch and reflect changes immediately.",
+        "Errors are shown as user-friendly English messages with a retry action where appropriate."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/queries/queryKeys.ts",
+          "operation": "create",
+          "description": "Define centralized React Query keys for Blueprints, Artifacts, TwinDrafts, Playbooks, and Scenarios to ensure consistent cache invalidation and refetch behavior across modules."
+        },
+        {
+          "path": "frontend/src/hooks/queries/useBlueprints.ts",
+          "operation": "modify",
+          "description": "Ensure Blueprint queries expose loading/empty/error helpers and implement mutation behaviors (refetch/optimistic updates) plus user-friendly error messages and retry integration."
+        },
+        {
+          "path": "frontend/src/hooks/queries/useArtifacts.ts",
+          "operation": "modify",
+          "description": "Ensure Artifact queries/mutations implement immediate UI updates and user-friendly error states with retry actions."
+        },
+        {
+          "path": "frontend/src/hooks/queries/useTwinDrafts.ts",
+          "operation": "modify",
+          "description": "Ensure Twin draft queries/mutations implement immediate UI updates and user-friendly error states with retry actions."
+        },
+        {
+          "path": "frontend/src/hooks/queries/usePlaybooks.ts",
+          "operation": "modify",
+          "description": "Ensure Playbook queries/mutations implement immediate UI updates and user-friendly error states with retry actions."
+        },
+        {
+          "path": "frontend/src/hooks/queries/useScenarios.ts",
+          "operation": "modify",
+          "description": "Ensure Scenario queries/mutations implement immediate UI updates and user-friendly error states with retry actions."
+        },
+        {
+          "path": "frontend/src/components/shared/QueryState.tsx",
+          "operation": "create",
+          "description": "Create shared UI helpers for loading skeletons/indicators, empty states, and error states with retry action; compose shadcn-ui components (e.g., Skeleton/Button/Alert) to standardize UX. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/BlueprintPage.tsx",
+          "operation": "modify",
+          "description": "Wire Blueprint page list/detail/wizard to React Query hooks and display standardized loading/empty/error states via shared QueryState components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/TwinPage.tsx",
+          "operation": "modify",
+          "description": "Wire Twin page ingestion/list/draft to React Query hooks and display standardized loading/empty/error states via shared QueryState components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/NarrativePage.tsx",
+          "operation": "modify",
+          "description": "Wire Narrative page form/list to React Query hooks and display standardized loading/empty/error states via shared QueryState components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/SimulatorPage.tsx",
+          "operation": "modify",
+          "description": "Wire Simulator page runs list/save/compare to React Query hooks and display standardized loading/empty/error states via shared QueryState components. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add an in-app Demo Data action that seeds example content across all modules and refreshes the UI; seeding must be idempotent and demo content clearly marked.",
+      "acceptanceCriteria": [
+        "User can click “Load Demo Data” and see populated lists across all modules.",
+        "Seeding is idempotent (re-running does not create duplicates).",
+        "Demo content is clearly marked as sample content in the UI."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/queries/useDemoData.ts",
+          "operation": "create",
+          "description": "Create a React Query mutation hook that calls the backend demo seeding capability and then invalidates/refetches all module queries so lists populate immediately; surface user-friendly error/retry."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Add a prominent “Load Demo Data” action that triggers demo seeding via React Query and communicates progress/success/failure; keep English labeling and premium styling with shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/shared/DemoBadge.tsx",
+          "operation": "create",
+          "description": "Create a small badge/label component to mark demo/sample records in lists and detail views; compose shadcn-ui Badge (or equivalent) for consistent styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/BlueprintPage.tsx",
+          "operation": "modify",
+          "description": "Mark demo/sample Blueprint and generated manual preview content clearly in the UI when present (e.g., via DemoBadge) and ensure lists refresh after demo seeding. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/TwinPage.tsx",
+          "operation": "modify",
+          "description": "Mark demo/sample artifacts and twin drafts clearly in the UI when present (e.g., via DemoBadge) and ensure lists refresh after demo seeding. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/NarrativePage.tsx",
+          "operation": "modify",
+          "description": "Mark demo/sample playbooks clearly in the UI when present (e.g., via DemoBadge) and ensure lists refresh after demo seeding. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/SimulatorPage.tsx",
+          "operation": "modify",
+          "description": "Mark demo/sample simulator runs clearly in the UI when present (e.g., via DemoBadge) and ensure lists refresh after demo seeding. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

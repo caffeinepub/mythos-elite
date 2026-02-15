@@ -1,0 +1,148 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-15T20:57:06.744Z",
+  "summary": "Diff adds a React app shell with 4-section navigation, module UIs for Blueprint/Narrative/Simulator/Twin (artifacts + draft workspace), React Query hooks (at least for artifacts), a Motoko backend actor with in-memory Maps for entities, export-to-.txt/.md for Blueprint manuals and Narrative playbooks, and a “Load Demo Data” button wired to a hook. Several BuildRequest requirements are only partially evidenced or not evidenced (notably backend timestamp fields/CRUD completeness and Twin file uploads).",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Each of the 4 primary sections has an overview panel describing what it does (English), and the app renders without blank/dead routes.",
+      "reason": "The diff shows navigation via local state and rendering pages, but no evidence of required per-section overview panels or route handling; page components are referenced but not included in the shown diff summary.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "requirement": "Coherent premium visual theme (neutral palette, restrained accents; avoid blue/purple as primary accents), consistent across modules; responsive at mobile and desktop widths.",
+      "reason": "Some layout responsiveness is implied (e.g., left nav hidden on small screens), but there is no evidence of a specific neutral/gold-accent theme configuration or enforcement that primary accent is not blue/purple; theme implementation details (Tailwind/shadcn tokens) are not shown.",
+      "evidence": [
+        "frontend/src/components/layout/AppShell.tsx",
+        "frontend/src/components/layout/LeftNav.tsx"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "requirement": "Save a draft intake and return to it within the same browser session and via backend persistence; generated Doctrine Manual includes labeled sections and incorporates user content; manual export.",
+      "reason": "Wizard generates a manual preview and exports are implemented, but the backend saveBlueprint stores doctrineManual as null and the UI save only persists traits/name. No evidence of draft saving/resume flow within session, nor backend persistence of the generated manual itself.",
+      "evidence": [
+        "frontend/src/components/blueprint/BlueprintWizard.tsx",
+        "backend/main.mo",
+        "frontend/src/components/blueprint/DoctrineManualPreview.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Artifact ingestion UI supports text inputs and file uploads (stored as text where feasible).",
+      "reason": "Artifact ingestion panel only shows name + textarea content entry; no evidence of file upload input/handling.",
+      "evidence": [
+        "frontend/src/components/twin/ArtifactIngestionPanel.tsx"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Simulator displays suggested mitigations in scenario branches.",
+      "reason": "Branch type in backend has only name and rationale; UI displays rationale but no explicit mitigations field/content is evidenced.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/components/simulator/ScenarioResults.tsx"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Backend records for all stored entities include id, createdAt timestamp, and updatedAt timestamp; CRUD methods for prototype entities.",
+      "reason": "Backend types use fields like timestamp/lastModified but do not include createdAt/updatedAt consistently (e.g., Blueprint has lastModified; Artifact has timestamp). Also only save/get/list/delete are shown for Blueprint/Artifact; no update method is evidenced. TwinDraft/Playbook/Scenario sections are truncated so full CRUD/timestamp compliance is not verifiable.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "React Query integration includes loading states, empty states, error states with retry across each module list/detail; mutations optimistically update or refetch; user-friendly errors with retry.",
+      "reason": "A generic QueryState component exists and useArtifacts uses invalidateQueries on success, but only the artifacts hook is shown. No evidence for corresponding React Query hooks and UI state handling for blueprints, twin drafts, playbooks, and scenarios in the provided diff summary (some hooks are referenced but not included).",
+      "evidence": [
+        "frontend/src/components/shared/QueryState.tsx",
+        "frontend/src/hooks/queries/useArtifacts.ts",
+        "frontend/src/components/blueprint/BlueprintList.tsx",
+        "frontend/src/components/narrative/PlaybookList.tsx",
+        "frontend/src/components/simulator/ScenarioList.tsx"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "requirement": "Demo Data action seeds example Blueprint+Doctrine Manual, artifacts, one playbook, and two simulator runs; seeding is idempotent and demo content marked.",
+      "reason": "UI includes a \"Load Demo Data\" button calling useDemoData(), and demo badges are conditionally shown based on ID prefixes, but no seeding logic is present in the shown diff. Idempotency and cross-module population cannot be verified from provided evidence.",
+      "evidence": [
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/components/shared/DemoBadge.tsx",
+        "frontend/src/components/blueprint/BlueprintList.tsx",
+        "frontend/src/components/narrative/PlaybookList.tsx",
+        "frontend/src/components/simulator/ScenarioList.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Backend includes blob storage mixin (MixinStorage / blob-storage) infrastructure.",
+      "reason": "BuildRequest does not request blob storage; artifact ingestion requirement is primarily text content where feasible and does not mandate a blob storage subsystem.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "ThemeProvider from next-themes with system/dark theme toggling support.",
+      "reason": "BuildRequest asks for a premium consistent theme but does not request next-themes or system theme switching specifically.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.68,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/blueprint/BlueprintList.tsx",
+    "frontend/src/components/blueprint/BlueprintWizard.tsx",
+    "frontend/src/components/blueprint/DoctrineManualPreview.tsx",
+    "frontend/src/components/layout/AppShell.tsx",
+    "frontend/src/components/layout/Header.tsx",
+    "frontend/src/components/layout/LeftNav.tsx",
+    "frontend/src/components/narrative/PlaybookForm.tsx",
+    "frontend/src/components/narrative/PlaybookList.tsx",
+    "frontend/src/components/shared/DemoBadge.tsx",
+    "frontend/src/components/shared/QueryState.tsx",
+    "frontend/src/components/simulator/ScenarioCompare.tsx",
+    "frontend/src/components/simulator/ScenarioForm.tsx",
+    "frontend/src/components/simulator/ScenarioList.tsx",
+    "frontend/src/components/simulator/ScenarioResults.tsx",
+    "frontend/src/components/twin/ArtifactIngestionPanel.tsx",
+    "frontend/src/components/twin/TwinDraftWorkspace.tsx",
+    "frontend/src/hooks/queries/queryKeys.ts",
+    "frontend/src/hooks/queries/useArtifacts.ts",
+    "frontend/src/hooks/queries/useBlueprints.ts",
+    "frontend/src/hooks/queries/useDemoData.ts",
+    "frontend/src/hooks/queries/usePlaybooks.ts",
+    "frontend/src/hooks/queries/useScenarios.ts",
+    "frontend/src/hooks/queries/useTwinDrafts.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/exportText.ts",
+    "frontend/src/lib/generators/doctrineManual.ts",
+    "frontend/src/lib/generators/playbook.ts",
+    "frontend/src/lib/generators/simulator.ts",
+    "frontend/src/lib/generators/twinDraft.ts",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/BlueprintPage.tsx",
+    "frontend/src/pages/NarrativePage.tsx",
+    "frontend/src/pages/SimulatorPage.tsx",
+    "frontend/src/pages/TwinPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}
